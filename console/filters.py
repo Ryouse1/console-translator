@@ -1,12 +1,16 @@
-EXCLUDE_KEYWORDS = {
-    "print", "import", "from", "pip", "python",
-    "def", "class", "return", "for", "while",
-    "==", "!=", "::", "/", "\\"
-}
+import re
+
+_CONTROL = re.compile(r"[\x00-\x1f\x7f]")
 
 def should_translate(text: str) -> bool:
-    lower = text.lower()
-    for k in EXCLUDE_KEYWORDS:
-        if k in lower:
-            return False
+    if not isinstance(text, str):
+        return False
+
+    if text.strip() == "":
+        return False
+
+    # 制御文字だけのやつは弾く
+    if _CONTROL.sub("", text).strip() == "":
+        return False
+
     return True
