@@ -7,5 +7,5 @@ class TranslatedStdout:
     def flush(self):
         pass
 
-def enable():
+def enable_stdout_translation():
     sys.stdout = TranslatedStdout()
