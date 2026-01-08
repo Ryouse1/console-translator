@@ -1,3 +1,4 @@
+# console/stdout_hook.py
 import sys
 from .translator import translate
 
