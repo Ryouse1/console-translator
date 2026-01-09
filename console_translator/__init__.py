@@ -1,4 +1,3 @@
-from .translator import translate, language
-from .stdout_hook import enable_stdout_translation
+from .translator import translator, enable_stdout_translation
 
-__all__ = ["translate", "language", "enable_stdout_translation"]
+__all__ = ["translator", "enable_stdout_translation"]
